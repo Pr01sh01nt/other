@@ -21,7 +21,7 @@ app.use(cors({
 
 }));
 
-// const __dirname=path.resolve();
+
 
 app.use(cookieParser());
 app.use(express.json());
@@ -38,13 +38,14 @@ app.use("/api/v1/user",UserRouter);
 app.use("/api/v1/job",JobRouter);
 app.use("/api/v1/application",ApplicationRouter);
 
-app.use(express.static(path.join(__dirname,'/frontend/dist')));
+
+
 
 app.get("/hi", (req, res )=>{
   res.json({message : "hi route"});
 })
 
 app.use(errorMiddleware);
-// dbConnection();
+dbConnection();
 
 export default app;
